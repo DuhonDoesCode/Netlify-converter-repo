@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<title>Conversor</title>
+<body>
+    <style>
+        #celcius:checked ~ #result::after {
+            content: "Escreva seu valor em Celcius:";
+            font-weight: bold;
+            color: white;
+        }
+        h1 {
+            color: rgb(255, 255, 255);
+        }
+        h2 {
+            color: rgb(255, 255, 255);
+        }
+        body {
+            background: rgb(31, 31, 31);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label {
+            color: white;
+        }
+        
+    </style>
+    <h1>Bem vindo ao conversor de temperaturas!</h1>
+    <h2>Por favor escolha a escala que você tem seu valor: </h2>
+    <input type="radio" id="celcius" name="scale" value="Celcius">
+    <label for="Celcius">Celcius</label><br>
+    <input type="radio" id="fahrenheit" name="scale" value="Fahrenheit">
+    <label for="Fahrenheit">Fahrenheit</label>
+    <p id="result"></p>
+    <form action="#">
+        <input type="text" id="Value"/>
+        <input type="submit" onclick="scaleInput();"/>
+    </form>
+    <script>
+        function scaleInput(){
+            // var radioVal = document.getElementById("celcius").check;
+            var inputVal = document.getElementById("Value").value;
+            if(document.getElementById("celcius").checked) {
+                var convertResult = (Number(inputVal) * 1.8) + 32;
+                alert('Isso são ' + Number(convertResult) + ' graus Fahrenheit');
+            }else if(document.getElementById("fahrenheit").checked){
+                var convertResult = (Number((inputVal) - 32) * 5) / 9
+                alert('Isso são ' + Number(convertResult) + ' graus Celcius')
+            }
+        }
+    </script>
+</body>
+</html>
